@@ -1,0 +1,118 @@
+[
+    {
+        "label": "Home",
+        "link": "/"
+    },
+    {
+        "label": "About",
+        "link": "/about"
+    },
+    {
+        "label": "Home & Kitchen",
+        "link": "#",
+        "megaMenu": [
+            {
+                "title": "Kitchen & Appliances",
+                "items": [
+                    {
+                        "name": "View All",
+                        "link": "/kitchen/view-all"
+                    },
+                    {
+                        "name": "Kitchen Tools",
+                        "link": "/kitchen/tools"
+                    },
+                    {
+                        "name": "Storage & Organizers",
+                        "link": "/kitchen/storage"
+                    }
+                ]
+            },
+            {
+                "title": "Home Decor",
+                "items": [
+                    {
+                        "name": "Clocks",
+                        "link": "/decor/clocks"
+                    },
+                    {
+                        "name": "Wall Stickers",
+                        "link": "/decor/stickers"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "label": "Beauty & Health",
+        "link": "/beauty-health",
+        "megaMenu": [
+            {
+                "title": "Makeup",
+                "items": [
+                    {
+                        "name": "View All",
+                        "link": "/kitchen/view-all"
+                    },
+                    {
+                        "name": "Make up Cosmetics",
+                        "link": "/kitchen/tools"
+                    },
+                    {
+                        "name": "Brushes and tools",
+                        "link": "/kitchen/storage"
+                    }
+                ]
+            },
+            {
+                "title": "Skin Care",
+                "items": [
+                    {
+                        "name": "Lotion & Creams",
+                        "link": "/decor/clocks"
+                    },
+                    {
+                        "name": "Face Mask & Peels",
+                        "link": "/decor/stickers"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "label": "Fashion",
+        "link": "/beauty-health",
+        "megaMenu": [
+            {
+                "title": "Men's Clothing",
+                "items": [
+                    {
+                        "name": "View All",
+                        "link": "/kitchen/view-all"
+                    },
+                    {
+                        "name": "Top Wear",
+                        "link": "/kitchen/tools"
+                    },
+                    {
+                        "name": "Bottom Wear",
+                        "link": "/kitchen/storage"
+                    }
+                ]
+            },
+            {
+                "title": "Women's Wear",
+                "items": [
+                    {
+                        "name": "Top Wear",
+                        "link": "/decor/clocks"
+                    },
+                    {
+                        "name": "Bottom Wear",
+                        "link": "/decor/stickers"
+                    }
+                ]
+            }
+        ]
+    }
+]
