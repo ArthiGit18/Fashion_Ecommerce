@@ -1,8 +1,11 @@
 'use client';
 import { useState, useMemo } from 'react';
 import Filter from './Filter';
-import List from './List';
-import products from '../data/Data.json';
+import List, { Product } from './List';
+import SearchBar from './SearchBar';
+import rawProducts from '../data/Data.json';
+
+const products: Product[] = rawProducts;
 
 export default function ProductsMain() {
     const [filters, setFilters] = useState({
@@ -12,7 +15,11 @@ export default function ProductsMain() {
         rating: [] as number[],
     });
 
-    const filteredProducts = useMemo(() => {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const filteredProducts: Product[] = useMemo(() => {
+        const query = searchQuery.trim().toLowerCase();
+
         return products.filter(product => {
             const matchesCategory =
                 filters.category.length === 0 || filters.category.includes(product.category);
@@ -21,20 +28,35 @@ export default function ProductsMain() {
             const matchesColor =
                 filters.color.length === 0 || filters.color.includes(product.color);
             const matchesRating =
-                filters.rating.length === 0 ||
-                filters.rating.some(min => product.ratings >= min);
+                filters.rating.length === 0 || filters.rating.some(min => product.ratings >= min);
 
-            return matchesCategory && matchesGender && matchesColor && matchesRating;
+            const matchesSearch =
+                query === '' ||
+                product.title.toLowerCase().includes(query) ||
+                product.category.toLowerCase().includes(query) ||
+                product.color.toLowerCase().includes(query) ||
+                product.gender.toLowerCase().includes(query);
+
+            return matchesCategory && matchesGender && matchesColor && matchesRating && matchesSearch;
         });
-    }, [filters]);
+    }, [filters, searchQuery]);
 
     return (
-        <div className="w-full max-w-screen-xl mx-auto px-4 py-4 flex gap-8">
-            <div className="w-[220px]">
-                <Filter onFilterChange={setFilters} />
+        <div className="w-full max-w-screen-xl mx-auto px-4 py-4">
+            <div className="mb-6">
+                <SearchBar onSearch={setSearchQuery} />
             </div>
-            <div className="flex-1">
-                <List products={filteredProducts} />
+            <div className="flex gap-8">
+                <div className="w-[220px]">
+                    <Filter onFilterChange={setFilters} />
+                </div>
+                <div className="flex-1">
+                    {filteredProducts.length === 0 ? (
+                        <p className="text-red-500">No products found for "{searchQuery}"</p>
+                    ) : (
+                        <List products={filteredProducts} />
+                    )}
+                </div>
             </div>
         </div>
     );
