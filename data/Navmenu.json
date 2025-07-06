@@ -4,10 +4,6 @@
         "link": "/"
     },
     {
-        "label": "About",
-        "link": "/about"
-    },
-    {
         "label": "Home & Kitchen",
         "link": "#",
         "megaMenu": [

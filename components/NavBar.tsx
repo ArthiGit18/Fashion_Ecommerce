@@ -16,6 +16,7 @@ const allProducts = rawProducts;
 export default function NavBar() {
     const { cartItems } = useCart();
     const router = useRouter();
+
     const { theme, toggleTheme } = useTheme();
     const [isLoading, setIsLoading] = useState(false);
     const { searchQuery, setSearchQuery } = useSearch();
@@ -31,7 +32,11 @@ export default function NavBar() {
     return (
         <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-4 py-4 flex items-center justify-between">
             <div className="text-xl font-bold">
-                <h2>MyLogo</h2>
+                <img
+                    src={theme === 'dark' ? '/images/logo/fox (3).png' : '/images/logo/fox (2).png'}
+                    alt="logo"
+                    className="h-20 w-30 object-contain"
+                />
             </div>
 
             <SearchBar allProducts={allProducts} onSearch={setSearchQuery} />
