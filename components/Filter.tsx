@@ -41,11 +41,11 @@ export default function Filter({ onFilterChange }: Props) {
 
     return (
         <div className="bg-indigo-100 rounded-xl px-4 py-8 w-full">
-            <h3 className="font-bold text-lg mb-2">Products For You</h3>
+            <h3 className="font-bold text-2xl mb-2 text-blue-950">Products For You</h3>
             <SortDropdown />
-            <h3 className="font-bold mt-6">Filters</h3>
+            <h3 className="font-bold mt-6 text-gray-700">Filters</h3>
             <p className="text-sm text-gray-600 py-2">1000+ products</p>
-            <hr className="mb-4" />
+            <hr className="mb-4 text-gray-700" />
 
             {['category', 'gender', 'color', 'rating'].map(label => (
                 <div key={label} className="mb-4">

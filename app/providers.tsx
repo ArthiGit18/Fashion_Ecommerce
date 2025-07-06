@@ -1,8 +1,12 @@
 'use client';
 
-import { ReactNode } from 'react';
-import { CartProvider } from '../components/CartContext';
+import { CartProvider } from '@/components/CartContext'; // Adjust path as needed
+import type { ReactNode } from 'react';
 
 export function Providers({ children }: { children: ReactNode }) {
-  return <CartProvider>{children}</CartProvider>;
+  return (
+    <CartProvider>
+      {children}
+    </CartProvider>
+  );
 }

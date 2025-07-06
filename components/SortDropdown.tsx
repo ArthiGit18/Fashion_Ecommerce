@@ -14,7 +14,7 @@ export default function SortDropdown() {
     ];
 
     return (
-        <div className="my-4">
+        <div className="my-4 text-gray-700">
             <label className="text-sm font-medium  text-gray-700 mr-2">Sort by:</label>
             <select
                 value={sort}
