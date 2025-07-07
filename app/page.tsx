@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import NavSub from "@/components/NavSub";
 import ProductsMain from "@/components/ProductsMain";
@@ -12,6 +13,7 @@ export default function Page() {
       <Banner />
       <ProductsMain />
       <SubscriptionSection />
+      <Footer />
     </>
   );
 }
