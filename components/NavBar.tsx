@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import rawProducts from '../data/Data.json';
 import NavMenu from './NavMenu';
+import Link from 'next/link';
 
 const allProducts = rawProducts;
 
@@ -39,16 +40,18 @@ export default function NavBar() {
         }, 2000);
     };
 
+    console.log(searchQuery)
+
     return (
         <div className="fixed top-0 left-0 w-full z-50 bg-[var(--background)] text-[var(--foreground)] shadow-md">
             <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-4 py-4 flex items-center justify-between">
-                <a href="/" className="text-xl font-bold">
+                <Link href="/" className="text-xl font-bold">
                     <img
                         src={theme === 'dark' ? '/images/logo/fox (3).png' : '/images/logo/fox (2).png'}
                         alt="logo"
                         className="h-20 w-30 object-contain"
                     />
-                </a>
+                </Link>
 
                 <SearchBar allProducts={allProducts} onSearch={setSearchQuery} />
 
