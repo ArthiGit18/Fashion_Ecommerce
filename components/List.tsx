@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from './CartContext';
-
 export type Product = {
     id: number;
     title: string;
@@ -15,18 +14,14 @@ export type Product = {
     category: string;
     image: string;
 };
-
 export default function List({ products }: { products: Product[] }) {
     const [visibleCount, setVisibleCount] = useState(9);
     const [loadingId, setLoadingId] = useState<number | null>(null);
     const [loadingViewId, setLoadingViewId] = useState<number | null>(null);
-
     const { addToCart, isInCart } = useCart();
     const router = useRouter();
-
     const showMore = () => setVisibleCount((prev) => prev + 3);
     const visibleProducts = products.slice(0, visibleCount);
-
     const handleAddToCart = (product: Product) => {
         setLoadingId(product.id);
         setTimeout(() => {
@@ -34,14 +29,12 @@ export default function List({ products }: { products: Product[] }) {
             setLoadingId(null);
         }, 1000);
     };
-
     const handleView = (productId: number) => {
         setLoadingViewId(productId);
         setTimeout(() => {
             router.push(`/product/${productId}`);
         }, 1000);
     };
-
     return (
         <div className="w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -61,7 +54,6 @@ export default function List({ products }: { products: Product[] }) {
                                     <span className="text-gray-500">({product.reviews} reviews)</span>
                                 </p>
                             </div>
-
                             <div className="flex gap-2 pt-2">
                                 <button
                                     onClick={() => handleView(product.id)}
@@ -73,7 +65,6 @@ export default function List({ products }: { products: Product[] }) {
                                 >
                                     {loadingViewId === product.id ? 'Loading...' : 'View'}
                                 </button>
-
                                 {isInCart(product.id) ? (
                                     <button
                                         onClick={() => router.push('/cart')}
@@ -98,7 +89,6 @@ export default function List({ products }: { products: Product[] }) {
                     </div>
                 ))}
             </div>
-
             {visibleCount < products.length && (
                 <div className="flex justify-center mt-6">
                     <button

@@ -1,9 +1,7 @@
 'use client';
 import { useState } from 'react';
-
 export default function SortDropdown() {
     const [sort, setSort] = useState('Relevance');
-
     const sortOptions = [
         'Relevance',
         'New Arrival',
@@ -12,7 +10,6 @@ export default function SortDropdown() {
         'Price (Low to High)',
         'Price (High to Low)',
     ];
-
     return (
         <div className="my-4 text-gray-700">
             <label className="text-sm font-medium  text-gray-700 mr-2">Sort by:</label>

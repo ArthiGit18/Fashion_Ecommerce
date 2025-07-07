@@ -51,11 +51,11 @@
                         "link": "/kitchen/view-all"
                     },
                     {
-                        "name": "Make up Cosmetics",
+                        "name": "Beauty - Makeup",
                         "link": "/kitchen/tools"
                     },
                     {
-                        "name": "Brushes and tools",
+                        "name": "Beauty - Brushes",
                         "link": "/kitchen/storage"
                     }
                 ]
@@ -64,11 +64,11 @@
                 "title": "Skin Care",
                 "items": [
                     {
-                        "name": "Lotion & Creams",
+                        "name": "Beauty - Creams",
                         "link": "/decor/clocks"
                     },
                     {
-                        "name": "Face Mask & Peels",
+                        "name": "Beauty - Face Mask",
                         "link": "/decor/stickers"
                     }
                 ]
@@ -87,11 +87,11 @@
                         "link": "/kitchen/view-all"
                     },
                     {
-                        "name": "Top Wear",
+                        "name": "Men's Wear",
                         "link": "/kitchen/tools"
                     },
                     {
-                        "name": "Bottom Wear",
+                        "name": "Men's Jeans",
                         "link": "/kitchen/storage"
                     }
                 ]
@@ -100,11 +100,11 @@
                 "title": "Women's Wear",
                 "items": [
                     {
-                        "name": "Top Wear",
+                        "name": "Women's Top Wear",
                         "link": "/decor/clocks"
                     },
                     {
-                        "name": "Bottom Wear",
+                        "name": "Women's Bottom Wear",
                         "link": "/decor/stickers"
                     }
                 ]

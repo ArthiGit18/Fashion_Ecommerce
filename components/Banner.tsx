@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-
 const slides = [
     {
         title: 'Brand new clothes',
@@ -18,17 +17,14 @@ const slides = [
         image: '/images/5.jpg'
     }
 ];
-
 export default function Banner() {
     const [current, setCurrent] = useState(0);
-
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent(prev => (prev + 1) % slides.length);
-        }, 4000); // Slide every 4 seconds
+        }, 4000);
         return () => clearInterval(interval);
     }, []);
-
     return (
         <div className="relative w-full h-[500px] overflow-hidden">
             {slides.map((slide, index) => (
