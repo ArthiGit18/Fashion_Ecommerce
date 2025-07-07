@@ -5,10 +5,9 @@ import { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import NavBar from '@/components/NavBar';
 import NavSub from '@/components/NavSub';
-
+import Footer from '@/components/Footer';
 export default function CartPage() {
     const { cartItems, removeFromCart, clearCart } = useCart();
-
     const [quantities, setQuantities] = useState<{ [key: number]: number }>(() => {
         const initial: { [key: number]: number } = {};
         cartItems.forEach((item) => {
@@ -16,33 +15,27 @@ export default function CartPage() {
         });
         return initial;
     });
-
     const handleQuantityChange = (id: number, delta: number) => {
         setQuantities((prev) => ({
             ...prev,
             [id]: Math.max(1, (prev[id] || 1) + delta),
         }));
     };
-
     const getProductTotal = (price: number, qty: number) => price * qty;
-
     const totalAmount = cartItems.reduce((acc, item) => {
         const qty = quantities[item.id] || 1;
         return acc + getProductTotal(item.price, qty);
     }, 0);
-
     const deliveryTotal = cartItems.reduce((acc, item) => {
         const fee = parseInt(item.deliveryFee.replace(/[^\d]/g, '')) || 0;
         return acc + fee;
     }, 0);
-
     return (
         <>
             <NavBar />
             <NavSub />
             <div className="w-full max-w-screen-xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
-                {/* Left - Product List */}
-
+                {}
                 <div className="flex-1">
                     <h2 className="text-2xl font-bold mb-6">My Cart</h2>
                     {cartItems.length === 0 ? (
@@ -86,8 +79,7 @@ export default function CartPage() {
                                             </div>
                                         </div>
                                     </div>
-
-                                    {/* Right section: price + delete */}
+                                    {}
                                     <div className="flex flex-col items-end gap-2 mt-4 sm:mt-0">
                                         <div className="text-right">
                                             <p className="text-sm text-gray-500">Price:</p>
@@ -106,8 +98,7 @@ export default function CartPage() {
                         })
                     )}
                 </div>
-
-                {/* Right - Price Summary */}
+                {}
                 {cartItems.length > 0 && (
                     <div className="w-full md:w-1/3 border rounded-lg p-6 shadow-sm h-fit">
                         <h3 className="text-xl font-bold mb-4">Price Summary</h3>
@@ -124,9 +115,7 @@ export default function CartPage() {
                             <span>Total</span>
                             <span>₹{totalAmount + deliveryTotal}</span>
                         </div>
-
                         <div className="flex gap-3 mt-6">
-
                             <button
                                 onClick={clearCart}
                                 className="w-full border border-red-500 text-red-600 py-2 rounded hover:bg-red-50"
@@ -140,6 +129,7 @@ export default function CartPage() {
                     </div>
                 )}
             </div>
+            <Footer />
         </>
     );
 }

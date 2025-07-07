@@ -1,10 +1,17 @@
 'use client';
+import { ReactNode } from 'react';
+import { ThemeProvider } from './ThemeContext';
+import { SearchProvider } from '@/components/SearchContext';
 import { CartProvider } from '@/components/CartContext';
-import type { ReactNode } from 'react';
+
 export function Providers({ children }: { children: ReactNode }) {
   return (
-    <CartProvider>
-      {children}
-    </CartProvider>
+    <ThemeProvider>
+      <SearchProvider>
+        <CartProvider>
+          {children}
+        </CartProvider>
+      </SearchProvider>
+    </ThemeProvider>
   );
 }
