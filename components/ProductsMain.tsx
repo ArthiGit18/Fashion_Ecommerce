@@ -48,7 +48,7 @@ export default function ProductsMain() {
         {}
         <div className="flex-1">
           {filteredProducts.length === 0 ? (
-            <p className="text-red-500">No products found for "{searchQuery}"</p>
+            <p className="text-red-500">No products found for {searchQuery}</p>
           ) : (
             <div id="product-list" className="flex-1">
               <List products={filteredProducts} />
